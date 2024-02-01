@@ -1,0 +1,25 @@
+.navbar{
+}
+
+.navbar .navbar-brand{
+  color: rgb(236, 15, 15);
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.navbar-nav .nav-item .nav-link{
+  color: rgb(236, 15, 15);
+  font-size: 20px;
+}
+
+.btn{
+  color: rgb(236, 15, 15);
+  border: 1px solid rgb(236, 15, 15);
+  font-size: 20px;
+}
+
+.btn:hover{
+  background-color: rgb(236, 15, 15);
+  color: rgb(40, 40, 40);
+}
+
