@@ -6,12 +6,7 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
 
 export const routes: Routes = [
   {path: '', component:HomeComponent},
-  {path: './pages/search', component:SearchComponent},
-  {path: './pages/movie/:id', component:MovieDetailsComponent}
+  {path: 'search', component:SearchComponent},
+  {path: 'movie/:id', component:MovieDetailsComponent}
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}
