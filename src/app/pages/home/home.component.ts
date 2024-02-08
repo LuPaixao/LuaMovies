@@ -14,9 +14,11 @@ export class HomeComponent{
   constructor( private service: MovieApiServiceService){ }
 
   bannerResult:any = [];
+  trendingMovieResult: any[] = [];
 
   ngOnInit(): void {
     this.bannerData();
+    this.trendingMovieAppData();
   }
 
   async bannerData() {
@@ -25,6 +27,16 @@ export class HomeComponent{
       this.bannerResult = result.results;
     } catch (error) {
       console.error('Erro ao obter dados:', error);
+    }
+  }
+
+  async trendingMovieAppData() {
+    try {
+      const result = await this.service.trendingAppData();
+      this.trendingMovieResult = result.results;
+      console.log(result)
+    } catch (error) {
+      console.error(error);
     }
   }
 
