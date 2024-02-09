@@ -22,6 +22,13 @@ export class MovieApiServiceService {
     const data = await response.json();
     return data;
   }
+
+  async searchMovie(movieName: string): Promise<any> {
+    const url = `${this.baseurl}/search/movie?api_key=${this.apikey}&query=${movieName}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  }
 }
 
 //Eu usei assim e a IDE pediu para usar o fetch pois de acordo com a api eu teria uma reposta mais rápida
