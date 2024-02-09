@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MovieApiServiceService } from '../../service/movie-api-service.service';
 import { CommonModule } from '@angular/common';
 
@@ -34,7 +34,6 @@ export class HomeComponent{
     try {
       const result = await this.service.trendingAppData();
       this.trendingMovieResult = result.results;
-      console.log(result)
     } catch (error) {
       console.error(error);
     }

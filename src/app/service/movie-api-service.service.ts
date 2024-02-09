@@ -22,7 +22,6 @@ export class MovieApiServiceService {
     const data = await response.json();
     return data;
   }
-
 }
 
 //Eu usei assim e a IDE pediu para usar o fetch pois de acordo com a api eu teria uma reposta mais rápida

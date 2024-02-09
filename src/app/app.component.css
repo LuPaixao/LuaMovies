@@ -10,14 +10,3 @@
   font-size: 20px;
 }
 
-.btn{
-  color: rgb(236, 15, 15);
-  border: 1px solid rgb(236, 15, 15);
-  font-size: 20px;
-}
-
-.btn:hover{
-  background-color: rgb(236, 15, 15);
-  color: rgb(40, 40, 40);
-}
-
