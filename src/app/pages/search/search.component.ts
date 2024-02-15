@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MovieApiServiceService } from '../../service/movie-api-service.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
   standalone: true,
-  imports: [ReactiveFormsModule]
+  imports: [ReactiveFormsModule, CommonModule]
 })
 export class SearchComponent {
 
@@ -15,6 +16,8 @@ export class SearchComponent {
 
   ngOnInit(): void {
   }
+
+  searchResult:any;
 
   searchForm = new FormGroup({
     'movieName':new FormControl(null)
@@ -27,6 +30,8 @@ export class SearchComponent {
       try {
         const result = await this.movieApiServiceService.searchMovie(movieName);
         console.log(result);
+        this.searchResult = result.results;
+        console.log(this.searchResult, 'result#')
       } catch (error) {
         console.error(error);
       }
