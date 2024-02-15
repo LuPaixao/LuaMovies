@@ -37,6 +37,7 @@ export class MovieApiServiceService {
     return this.http.get(`${this.baseurl}/movie/${data}?api_key=${this.apikey}`)
   }
 
+
 }
 
 //Eu usei assim e a IDE pediu para usar o fetch pois de acordo com a api eu teria uma reposta mais rápida
