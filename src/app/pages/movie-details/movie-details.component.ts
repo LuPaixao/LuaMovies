@@ -14,11 +14,15 @@ export class MovieDetailsComponent {
 
   constructor(private service:MovieApiServiceService, private router:ActivatedRoute) { }
   getMovieDetailsResult:any;
+  getMovieVideoResult:any;
+  getMovieCastResult:any;
 
   ngOnInit(): void {
     let getParamId = this.router.snapshot.paramMap.get('id');
 
     this.getMovie(getParamId);
+    this.getMovieVideoResult(getParamId);
+    this.getMovieCastResult(getParamId);
   }
 
   getMovie(id:any){
@@ -28,4 +32,49 @@ export class MovieDetailsComponent {
     });
   }
 
+  getVideo(id:any){
+    this.service.getMovieVideo(id).subscribe((result) =>{
+      console.log(result, 'getMovieVideos#');
+      this.getMovieVideoResult = result;
+    })
+  }
+
+  getMovieCast(id:any){
+    this.service.getMovieCast(id).subscribe((result) =>{
+      console.log(result, 'getMovieCast');
+      this.getMovieCastResult = result;
+    });
+  }
+
+
+
+
 }
+
+
+  /*
+
+  getMovie(id:any){
+    this.service.getMovieDetails(id).subscribe(async(result)=>{
+        console.log(result,'getmoviedetails#');
+        this.getMovieDetailResult = await result;
+
+        // updatetags
+        this.title.setTitle(`${this.getMovieDetailResult.original_title} | ${this.getMovieDetailResult.tagline}`);
+        this.meta.updateTag({name:'title',content:this.getMovieDetailResult.original_title});
+        this.meta.updateTag({name:'description',content:this.getMovieDetailResult.overview});
+
+        // facebook
+        this.meta.updateTag({property:'og:type',content:"website"});
+        this.meta.updateTag({property:'og:url',content:``});
+        this.meta.updateTag({property:'og:title',content:this.getMovieDetailResult.original_title});
+        this.meta.updateTag({property:'og:description',content:this.getMovieDetailResult.overview});
+        this.meta.updateTag({property:'og:image',content:`https://image.tmdb.org/t/p/original/${this.getMovieDetailResult.backdrop_path}`});
+
+    });
+  }
+
+  */
+
+
+

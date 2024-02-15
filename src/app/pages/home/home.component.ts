@@ -22,13 +22,10 @@ export class HomeComponent{
     this.trendingMovieAppData();
   }
 
-  async bannerData() {
-    try {
-      const result = await this.service.bannerApiData();
+  bannerData(){
+    this.service.bannerApiData().subscribe((result)=>{
       this.bannerResult = result.results;
-    } catch (error) {
-      console.error('Erro ao obter dados:', error);
-    }
+    })
   }
 
   async trendingMovieAppData() {

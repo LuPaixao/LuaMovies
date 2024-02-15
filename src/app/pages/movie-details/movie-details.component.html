@@ -1,8 +1,7 @@
 <div class="contain mt-5">
   <div class="row p-5">
-    <div class="col-lg-2">
-      <img src="https://image.tmdb.org/t/p/original/{{ getMovieDetailsResult.poster_path }}"
-      >
+    <div class="col-lg-2" *ngIf="getMovieDetailsResult.poster_path">
+      <img src="https://image.tmdb.org/t/p/original/{{ getMovieDetailsResult.poster_path }}">
     </div>
     <div class="col-lg-10 mt-5 p-4">
       <h1 class="mt-2 mb-2">{{getMovieDetailsResult.original_title}}</h1>
