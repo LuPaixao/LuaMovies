@@ -3,12 +3,13 @@ import { FormControl, FormGroup } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MovieApiServiceService } from '../../service/movie-api-service.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule]
+  imports: [ReactiveFormsModule, CommonModule, RouterLink, RouterLinkActive, RouterOutlet]
 })
 export class SearchComponent {
 
