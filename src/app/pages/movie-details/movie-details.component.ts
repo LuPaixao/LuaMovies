@@ -21,8 +21,8 @@ export class MovieDetailsComponent {
     let getParamId = this.router.snapshot.paramMap.get('id');
 
     this.getMovie(getParamId);
-    this.getMovieVideoResult(getParamId);
-    this.getMovieCastResult(getParamId);
+    this.getVideo(getParamId);
+    this.getCast(getParamId);
   }
 
   getMovie(id:any){
@@ -32,23 +32,26 @@ export class MovieDetailsComponent {
     });
   }
 
-  getVideo(id:any){
-    this.service.getMovieVideo(id).subscribe((result) =>{
-      console.log(result, 'getMovieVideos#');
-      this.getMovieVideoResult = result;
-    })
-  }
 
-  getMovieCast(id:any){
-    this.service.getMovieCast(id).subscribe((result) =>{
-      console.log(result, 'getMovieCast');
-      this.getMovieCastResult = result;
+  getVideo(id: any) {
+    this.service.getMovieVideo(id).subscribe((result) => {
+      console.log(result, 'getMovieVideo#');
+
+      const trailer = result.results.find((element:any) => element.type === 'Trailer');
+      if (trailer) {
+        this.getMovieVideoResult = trailer.key;
+      } else {
+        console.warn('Nenhum trailer encontrado');
+      }
     });
   }
 
-
-
-
+  getCast(id:any){
+    this.service.getMovieCast(id).subscribe((result) =>{
+      console.log(result, 'cast#');
+      this.getMovieCastResult = result.cast;
+    });
+  }
 }
 
 

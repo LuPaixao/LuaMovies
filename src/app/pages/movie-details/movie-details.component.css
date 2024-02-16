@@ -11,3 +11,15 @@ h1{
 p{
   color: #ffff;
 }
+
+a{
+  background-color: rgb(236, 15, 15);
+  color: #ffff;
+  text-decoration: none;
+}
+
+a:hover{
+  background-color: rgb(236, 15, 15);
+  color: #ffff;
+  border: 2px solid #ffff;
+}

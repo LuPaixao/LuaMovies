@@ -17,16 +17,8 @@ export class MovieApiServiceService {
     return this.http.get(`${this.baseurl}/trending/all/week?api_key=${this.apikey}`);
   }
 
-  /*
-  trendingAppData(): Promise<any>{
+  trendingMovieApiData(): Observable<any> {
     return this.http.get(`${this.baseurl}/trending/movie/day?api_key=${this.apikey}`);
-  }
-  */
-
-  async trendingAppData(): Promise<any> {
-    const response = await fetch(`${this.baseurl}/trending/movie/day?api_key=${this.apikey}`);
-    const data = await response.json();
-    return data;
   }
 
   async searchMovie(movieName: string): Promise<any> {
@@ -36,8 +28,7 @@ export class MovieApiServiceService {
     return data;
   }
 
-  getMovieDetails(data:any):Observable<any>
-  {
+  getMovieDetails(data: any): Observable<any> {
     return this.http.get(`${this.baseurl}/movie/${data}?api_key=${this.apikey}`)
   }
 

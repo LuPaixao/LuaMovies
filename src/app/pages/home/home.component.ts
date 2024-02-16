@@ -19,7 +19,7 @@ export class HomeComponent{
 
   ngOnInit(): void {
     this.bannerData();
-    this.trendingMovieAppData();
+    this.trendingData();
   }
 
   bannerData(){
@@ -28,13 +28,10 @@ export class HomeComponent{
     })
   }
 
-  async trendingMovieAppData() {
-    try {
-      const result = await this.service.trendingAppData();
+  trendingData() {
+    this.service.trendingMovieApiData().subscribe((result) => {
       this.trendingMovieResult = result.results;
-    } catch (error) {
-      console.error(error);
-    }
+    });
   }
 
 }
