@@ -27,7 +27,6 @@ export class MovieDetailsComponent {
 
   getMovie(id:any){
     this.service.getMovieDetails(id).subscribe((result)=>{
-      console.log(result, 'result#');
       this.getMovieDetailsResult = result;
     });
   }
@@ -35,7 +34,6 @@ export class MovieDetailsComponent {
 
   getVideo(id: any) {
     this.service.getMovieVideo(id).subscribe((result) => {
-      console.log(result, 'getMovieVideo#');
 
       const trailer = result.results.find((element:any) => element.type === 'Trailer');
       if (trailer) {
@@ -48,7 +46,6 @@ export class MovieDetailsComponent {
 
   getCast(id:any){
     this.service.getMovieCast(id).subscribe((result) =>{
-      console.log(result, 'cast#');
       this.getMovieCastResult = result.cast;
     });
   }

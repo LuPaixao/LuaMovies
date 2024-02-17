@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { fetch } from 'cross-fetch';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -21,11 +20,10 @@ export class MovieApiServiceService {
     return this.http.get(`${this.baseurl}/trending/movie/day?api_key=${this.apikey}`);
   }
 
-  async searchMovie(movieName: string): Promise<any> {
-    const url = `${this.baseurl}/search/movie?api_key=${this.apikey}&query=${movieName}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
+  getSearchMovie(data: any): Observable<any> {
+    console.log(data, 'movie#');
+
+    return this.http.get(`${this.baseurl}/search/movie?api_key=${this.apikey}&query=${data.movieName}`);
   }
 
   getMovieDetails(data: any): Observable<any> {
