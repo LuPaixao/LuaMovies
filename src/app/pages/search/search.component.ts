@@ -15,7 +15,7 @@ import { Title,Meta } from '@angular/platform-browser';
 export class SearchComponent {
 
   constructor(private service:MovieApiServiceService,private title:Title,private meta:Meta) {
-    this.title.setTitle('Search movies - showtime');
+    this.title.setTitle('Search movies - luaMovies');
     this.meta.updateTag({name:'description',content:'search here movies like avatar,war etc'});
    }
 
